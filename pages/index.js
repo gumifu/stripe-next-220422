@@ -5,11 +5,13 @@ import { useShoppingCart } from 'use-shopping-cart'
 import { CartDetail } from '../components/cart'
 
 export async function getStaticProps() {
-  // const products = await fetch('http://localhost:3000/api/products')
-      // .then(response => response.json())
+  const products = await fetch('http://localhost:3000/api/products')
+  // const products = await fetch(`process.env.NEXT_URL/api/products`)
+      .then(response => response.json())
   return {
     props: {
-      products:[]
+      // products:[]
+      products
     },
     revalidate: 1 * 60 // 1分
   }
